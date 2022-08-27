@@ -16,14 +16,14 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add("");
         Assert.Equal(0, result);
     }
-    
+    [Fact]
     [InlineData(1,"1")]
     public void ShouldReturnOneNumber()
     {
         var result = _stringCalculator.Add("1");
         Assert.Equal(1, result);
     }
-
+    [Fact]
     public void ShouldReturnSum()
     {
         var result = _stringCalculator.Add("1, 2");
