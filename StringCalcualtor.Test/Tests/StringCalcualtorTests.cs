@@ -23,10 +23,16 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add("1");
         Assert.Equal(1, result);
     }
-
+    
     public void ShouldReturnSum()
     {
         var result = _stringCalculator.Add("1, 2");
         Assert.Equal(3, result);
+    }
+    [Fact]
+    public void ShouldReturnSumSplitBycommaAndNewLine()
+    {
+        var result = _stringCalculator.Add("1, 2\n 3");
+        Assert.Equal(6, result);
     }
 }

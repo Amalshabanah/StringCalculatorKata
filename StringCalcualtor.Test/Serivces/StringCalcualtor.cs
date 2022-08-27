@@ -11,7 +11,7 @@ public class StringCalcualtor
         {
             int sum = 0;
             string[] nums;
-            nums = numbers.Split(',');
+            nums = numbers.Split(new char[] {',', '\n'});
             foreach (var num in nums)
             {
                 sum += Int32.Parse(num);
