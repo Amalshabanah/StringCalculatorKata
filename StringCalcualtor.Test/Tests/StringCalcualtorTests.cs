@@ -29,4 +29,10 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add("1, 2");
         Assert.Equal(3, result);
     }
+    
+    public void ShouldReturnSumUnknownAmountOfNumbers()
+    {
+        var result = _stringCalculator.Add("1, 2, 4, 7, 8");
+        Assert.Equal(22, result);
+    }
 }
