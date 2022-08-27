@@ -30,7 +30,7 @@ public class StringCalcualtorTests
         Assert.Equal(3, result);
     }
     [Fact]
-    public void ShouldReturnSumSplitBycommaAndNewLine()
+    public void ShouldReturnSumSplitByCommaAndNewLine()
     {
         var result = _stringCalculator.Add("1, 2\n 3");
         Assert.Equal(6, result);
