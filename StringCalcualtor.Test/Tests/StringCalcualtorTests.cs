@@ -23,13 +23,13 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add("1");
         Assert.Equal(1, result);
     }
-
+ 
     public void ShouldReturnSum()
     {
         var result = _stringCalculator.Add("1, 2");
         Assert.Equal(3, result);
     }
-    
+    [Fact]
     public void ShouldReturnSumUnknownAmountOfNumbers()
     {
         var result = _stringCalculator.Add("1, 2, 4, 7, 8");
