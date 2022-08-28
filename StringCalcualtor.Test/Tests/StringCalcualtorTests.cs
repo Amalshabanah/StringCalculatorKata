@@ -34,4 +34,15 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
     }
+    
+    [Theory]
+    [InlineData("1, 2, 4, 7, 8", 22)]
+    [InlineData("1", 1)]
+    [InlineData("",0)]
+    [InlineData("1,19,50", 70)]
+    public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
+    {
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
+    }
 }
