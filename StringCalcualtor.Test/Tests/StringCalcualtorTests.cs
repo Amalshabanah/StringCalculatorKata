@@ -36,6 +36,8 @@ public class StringCalcualtorTests
     }
     
     [Theory]
+    [InlineData("", 0)]
+    [InlineData("2", 2)]
     [InlineData("1, 2\n 3", 6)]
     [InlineData("1,4", 5)]
     [InlineData("1\n2\n4", 7)]
