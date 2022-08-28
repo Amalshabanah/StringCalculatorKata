@@ -4,35 +4,41 @@ namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
     private readonly StringCalcualtor _stringCalculator;
+    
     public StringCalcualtorTests()
     {
         _stringCalculator = new StringCalcualtor();
     }
     
-    [Fact]
+    [Theory]
     [InlineData(0, "")]
-    public void ShouldReturnZero()
+    public void ShouldReturnZero(int expected, string number)
     {
-        var result = _stringCalculator.Add("");
-        Assert.Equal(0, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
     
+    [Theory]
     [InlineData(1,"1")]
-    public void ShouldReturnOneNumber()
+    public void ShouldReturnOneNumber(int expected, string number)
     {
-        var result = _stringCalculator.Add("1");
-        Assert.Equal(1, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
- 
-    public void ShouldReturnSum()
+    
+    [Theory]
+    [InlineData(3,"1, 2")]
+    [InlineData(5,"1,4")]
+    public void ShouldReturnSum(int expected, string number)
     {
-        var result = _stringCalculator.Add("1, 2");
-        Assert.Equal(3, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
-    [Fact]
-    public void ShouldReturnSumUnknownAmountOfNumbers()
+    [Theory]
+    [InlineData(22,"1, 2, 4, 7, 8")]
+    public void ShouldReturnSumUnknownAmountOfNumbers(int expected, string number)
     {
-        var result = _stringCalculator.Add("1, 2, 4, 7, 8");
-        Assert.Equal(22, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
 }
