@@ -5,19 +5,17 @@ public class StringCalcualtor
     {
         if (string.IsNullOrEmpty(numbers))
             return 0;
+        
         if (!numbers.Contains(","))
             return Int32.Parse(numbers);
-        else
+        
+        var sum = 0;
+        var nums = numbers.Split(',');
+        foreach (var num in nums)
         {
-            int sum = 0;
-            string[] nums;
-            nums = numbers.Split(',');
-            foreach (var num in nums)
-            {
-                sum += Int32.Parse(num);
-            }
-
-            return sum;
+            sum += Int32.Parse(num);
         }
+
+        return sum;
     }
 }
