@@ -3,7 +3,12 @@ global using Xunit;
 namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
-    private readonly StringCalcualtor _stringCalculator;
+    private readonly IStringCalculator _stringCalculator;
+    
+    public StringCalcualtorTests(IStringCalculator stringCalculator )
+    {
+        _stringCalculator = stringCalculator;
+    }
     
     public StringCalcualtorTests()
     {
