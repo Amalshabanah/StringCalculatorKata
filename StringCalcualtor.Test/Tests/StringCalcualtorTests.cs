@@ -34,4 +34,12 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
     }
+
+    [Theory]
+    [InlineData("//;\n1;2",3)]
+    public void ShouldReturnSumDifferntDelimiters(string number, int expected)
+    {
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);   
+    }
 }
