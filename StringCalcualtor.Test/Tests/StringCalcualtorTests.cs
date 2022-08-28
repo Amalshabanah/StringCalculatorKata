@@ -4,35 +4,44 @@ namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
     private readonly StringCalcualtor _stringCalculator;
+    
     public StringCalcualtorTests()
     {
         _stringCalculator = new StringCalcualtor();
     }
     
-    [Fact]
-    [InlineData(0, "")]
-    public void ShouldReturnZero()
+    [Theory]
+    [InlineData("", 0)]
+    public void ShouldReturnZero(string number, int expected)
     {
-        var result = _stringCalculator.Add("");
-        Assert.Equal(0, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
     
-    [InlineData(1,"1")]
-    public void ShouldReturnOneNumber()
+    [Theory]
+    [InlineData("1", 1)]
+    public void ShouldReturnOneNumber(string number, int expected)
     {
-        var result = _stringCalculator.Add("1");
-        Assert.Equal(1, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
     
-    public void ShouldReturnSum()
+    [Theory]
+    [InlineData("1, 2", 3)]
+    [InlineData("1,4", 5)]
+    public void ShouldReturnSum(string number, int expected)
     {
-        var result = _stringCalculator.Add("1, 2");
-        Assert.Equal(3, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
-    [Fact]
-    public void ShouldReturnSumSplitByCommaAndNewLine()
+    
+    [Theory]
+    [InlineData("1, 2\n 3", 6)]
+    [InlineData("1,4", 5)]
+    [InlineData("1\n2\n4", 7)]
+    public void ShouldReturnSumSplitByCommaAndNewLine(string number, int expected)
     {
-        var result = _stringCalculator.Add("1, 2\n 3");
-        Assert.Equal(6, result);
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
     }
 }

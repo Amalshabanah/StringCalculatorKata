@@ -2,22 +2,21 @@ namespace StringCalcualtor.Serivces;
 public class StringCalcualtor
 {
     public int Add(string numbers)
-    {
+    { 
+        var sum = 0;
+        var nums = numbers.Split(new char[] {',', '\n'});
+        
         if (string.IsNullOrEmpty(numbers))
             return 0;
-        if (!numbers.Contains(","))
+        
+        if (!numbers.Contains(",") && !numbers.Contains("\n"))
             return Int32.Parse(numbers);
-        else
+       
+        foreach (var num in nums)
         {
-            int sum = 0;
-            string[] nums;
-            nums = numbers.Split(new char[] {',', '\n'});
-            foreach (var num in nums)
-            {
-                sum += Int32.Parse(num);
-            }
-
-            return sum;
+            sum += Int32.Parse(num);
         }
+
+        return sum;
     }
 }
