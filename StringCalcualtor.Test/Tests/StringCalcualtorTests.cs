@@ -37,8 +37,6 @@ public class StringCalcualtorTests
     
     [Theory]
     [InlineData("1, 2, 4, 7, 8", 22)]
-    [InlineData("1", 1)]
-    [InlineData("",0)]
     [InlineData("1,19,50", 70)]
     public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
     {
