@@ -35,8 +35,8 @@ public class StringCalcualtorTests
         Assert.Equal(expected, result);
     }
     [Theory]
-    [InlineData(22,"1, 2, 4, 7, 8")]
-    public void ShouldReturnSumUnknownAmountOfNumbers(int expected, string number)
+    [InlineData("1, 2, 4, 7, 8", 22)]
+    public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
     {
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
