@@ -1,7 +1,7 @@
 using StringCalcualtor.Serivces;
 using Xunit;
 
-namespace StringCalcualtor.Tests;
+namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
     private readonly IStringCalculator _stringCalculator;
