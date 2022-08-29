@@ -3,7 +3,7 @@ global using Xunit;
 namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
-    private readonly StringCalcualtor _stringCalculator;
+    private readonly IStringCalculator _stringCalculator;
     
     public StringCalcualtorTests()
     {
@@ -42,6 +42,15 @@ public class StringCalcualtorTests
     [InlineData("1,4", 5)]
     [InlineData("1\n2\n4", 7)]
     public void ShouldReturnSumSplitByCommaAndNewLine(string number, int expected)
+    {
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [InlineData("1, 2, 4, 7, 8", 22)]
+    [InlineData("1,19,50", 70)]
+    public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
     {
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
