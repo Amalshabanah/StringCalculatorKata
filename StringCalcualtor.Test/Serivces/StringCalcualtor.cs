@@ -1,5 +1,5 @@
 namespace StringCalcualtor.Serivces;
-public class StringCalcualtor
+public class StringCalcualtor : IStringCalculator
 {
     public int Add(string numbers)
     { 

@@ -1,15 +1,21 @@
-global using Xunit;
+using StringCalcualtor.Serivces;
+using Xunit;
 
-namespace StringCalcualtor.Serivces;
+namespace StringCalcualtor.Tests;
 public class StringCalcualtorTests
 {
-    private readonly StringCalcualtor _stringCalculator;
+    private readonly IStringCalculator _stringCalculator;
+    
+    public StringCalcualtorTests(IStringCalculator stringCalculator )
+    {
+        _stringCalculator = stringCalculator;
+    }
     
     public StringCalcualtorTests()
     {
-        _stringCalculator = new StringCalcualtor();
+        _stringCalculator = new Serivces.StringCalcualtor();
     }
-    
+
     [Theory]
     [InlineData("", 0)]
     public void ShouldReturnZero(string number, int expected)
@@ -42,6 +48,15 @@ public class StringCalcualtorTests
     [InlineData("1,4", 5)]
     [InlineData("1\n2\n4", 7)]
     public void ShouldReturnSumSplitByCommaAndNewLine(string number, int expected)
+    {
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [InlineData("1, 2, 4, 7, 8", 22)]
+    [InlineData("1,19,50", 70)]
+    public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
     {
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
