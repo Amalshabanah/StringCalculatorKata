@@ -1,6 +1,6 @@
 namespace StringCalcualtor.Serivces;
-public class StringCalcualtor : IStringCalculator
-{
+public class StringCalculator : IStringCalculator
+{ 
     public int Add(string numbers)
     { 
         var sum = 0;

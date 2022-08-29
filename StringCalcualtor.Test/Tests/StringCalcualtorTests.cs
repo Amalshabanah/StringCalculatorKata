@@ -1,18 +1,13 @@
-global using Xunit;
+using StringCalcualtor.Serivces;
+using Xunit;
 
-namespace StringCalcualtor.Serivces;
+namespace StringCalcualtor.Tests;
 public class StringCalcualtorTests
 {
-    private readonly IStringCalculator _stringCalculator;
-    
-    public StringCalcualtorTests(IStringCalculator stringCalculator )
-    {
-        _stringCalculator = stringCalculator;
-    }
-    
+    private StringCalculator _stringCalculator;
     public StringCalcualtorTests()
-    {
-        _stringCalculator = new StringCalcualtor();
+    { 
+        _stringCalculator = new StringCalculator();
     }
     
     [Theory]
