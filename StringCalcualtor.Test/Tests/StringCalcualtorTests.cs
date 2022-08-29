@@ -1,13 +1,13 @@
 using StringCalcualtor.Serivces;
 using Xunit;
 
-namespace StringCalcualtor.Tests;
+namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
 {
-    private StringCalculator _stringCalculator;
+    private StringCalcualtor _stringCalculator;
     public StringCalcualtorTests()
     { 
-        _stringCalculator = new StringCalculator();
+        _stringCalculator = new StringCalcualtor();
     }
     
     [Theory]
