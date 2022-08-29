@@ -8,12 +8,20 @@ public class StringCalcualtor
         
         if (string.IsNullOrEmpty(numbers))
             return 0;
-        
+
         if (!numbers.Contains(",") && !numbers.Contains("\n"))
+        {
+            if (Int32.Parse(numbers) >= 1000)
+                return 0;
             return Int32.Parse(numbers);
-       
+        }
+
         foreach (var num in nums)
         {
+            if (Int32.Parse(num) >= 1000)
+            {
+                continue;
+            }
             sum += Int32.Parse(num);
         }
 
