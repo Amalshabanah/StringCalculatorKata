@@ -5,11 +5,6 @@ public class StringCalcualtorTests
 {
     private readonly IStringCalculator _stringCalculator;
     
-    public StringCalcualtorTests(IStringCalculator stringCalculator )
-    {
-        _stringCalculator = stringCalculator;
-    }
-    
     public StringCalcualtorTests()
     {
         _stringCalculator = new StringCalcualtor();
