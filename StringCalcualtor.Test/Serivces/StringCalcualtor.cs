@@ -8,7 +8,7 @@ public class StringCalcualtor : IStringCalculator
         
         if (string.IsNullOrEmpty(numbers))
             return 0;
-
+         
         if (!numbers.Contains(",") && !numbers.Contains("\n"))
         {
             if (Int32.Parse(numbers) >= 1000)
