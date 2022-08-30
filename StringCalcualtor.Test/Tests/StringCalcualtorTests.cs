@@ -10,7 +10,7 @@ public class StringCalcualtorTests
     {
         _stringCalculator = new Serivces.StringCalcualtor();
     }
-
+    
     [Theory]
     [InlineData("", 0)]
     public void ShouldReturnZero(string number, int expected)
