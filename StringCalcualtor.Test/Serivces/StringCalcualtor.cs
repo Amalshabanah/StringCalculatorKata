@@ -4,7 +4,24 @@ public class StringCalcualtor : IStringCalculator
     public int Add(string numbers)
     { 
         var sum = 0;
-        var nums = numbers.Split(new char[] {',', '\n'});
+        string[] nums;
+
+        if (numbers.StartsWith("//"))
+        {
+           var numberRemovedSlash = numbers.Replace("//", ""); 
+           var delimiter = numberRemovedSlash[0];
+           var numberRemovedDelimiterAndNewLine=  numberRemovedSlash.Remove(0, 2); 
+           nums = numberRemovedDelimiterAndNewLine.Split(new char[] {'\n', delimiter});
+           
+            foreach (var num in nums)
+            {
+                sum += Int32.Parse(num);
+            }
+
+            return sum;
+        }
+        
+        nums = numbers.Split(new char[] {',', '\n'});
         
         if (string.IsNullOrEmpty(numbers))
             return 0;
