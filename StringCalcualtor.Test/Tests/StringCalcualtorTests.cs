@@ -60,7 +60,7 @@ public class StringCalcualtorTests
     [InlineData("1, 1000, 1", 2)]
     [InlineData("1000", 0)]
     [InlineData("2000, 1000", 0)]
-    public void shouldreturnSomeIgnoreBigNumbers(string number, int expected)
+    public void ShouldReturnSumIgnoreBigNumbers(string number, int expected)
     {
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
