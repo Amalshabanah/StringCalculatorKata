@@ -1,4 +1,5 @@
-global using Xunit;
+using StringCalcualtor.Serivces;
+using Xunit;
 
 namespace StringCalcualtor.Serivces;
 public class StringCalcualtorTests
@@ -54,6 +55,16 @@ public class StringCalcualtorTests
     {
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);
+    }
+
+    [Theory]
+    [InlineData("//;\n1;2",3)]
+    [InlineData("//s\n4s6", 10)]
+    [InlineData("//!\n1!5!8", 14)]
+    public void ShouldReturnSumDifferntDelimiters(string number, int expected)
+    {
+        var result = _stringCalculator.Add(number);
+        Assert.Equal(expected, result);   
     }
 
     [Theory]
