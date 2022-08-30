@@ -8,7 +8,7 @@ public class StringCalcualtorTests
     
     public StringCalcualtorTests()
     {
-        _stringCalculator = new Serivces.StringCalcualtor();
+        _stringCalculator = new StringCalcualtor();
     }
     
     [Theory]
