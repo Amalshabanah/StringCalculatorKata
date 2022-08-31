@@ -66,4 +66,13 @@ public class StringCalcualtorTests
         var result = _stringCalculator.Add(number);
         Assert.Equal(expected, result);   
     }
+    [Theory]
+    [InlineData("1,4,-1")]
+    [InlineData("-1, -3")]
+    public void ShouldThrowExpetionNegativeNumber(string number)
+    {
+        var exception = Assert.Throws<Exception>(() => _stringCalculator.Add(number));
+        
+        Assert.Contains(($"negatives are not allowed!"), exception.Message);
+    }
 }
