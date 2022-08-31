@@ -39,6 +39,11 @@ public class StringCalcualtor : IStringCalculator
             {
                 continue;
             }
+            if (Int32.Parse(num) < 0)
+            {
+                throw new Exception($"negatives are not allowed! {num}");
+            }
+            
             sum += Int32.Parse(num);
         }
 
