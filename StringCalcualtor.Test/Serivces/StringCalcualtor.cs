@@ -27,10 +27,18 @@ public class StringCalcualtor : IStringCalculator
             return 0;
         
         if (!numbers.Contains(",") && !numbers.Contains("\n"))
+        {
+            if (Int32.Parse(numbers) >= 1000)
+                return 0;
             return Int32.Parse(numbers);
-       
+        }
+
         foreach (var num in nums)
         {
+            if (Int32.Parse(num) >= 1000)
+            {
+                continue;
+            }
             if (Int32.Parse(num) < 0)
             {
                 throw new Exception($"negatives are not allowed! {num}");
