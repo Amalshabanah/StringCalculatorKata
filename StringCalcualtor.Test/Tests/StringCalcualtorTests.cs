@@ -13,26 +13,26 @@ public class StringCalcualtorTests
     
     [Theory]
     [InlineData("", 0)]
-    public void ShouldReturnZero(string number, int expected)
+    public void ShouldReturnZero(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);
     }
     
     [Theory]
     [InlineData("1", 1)]
-    public void ShouldReturnOneNumber(string number, int expected)
+    public void ShouldReturnOneNumber(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);
     }
     
     [Theory]
     [InlineData("1, 2", 3)]
     [InlineData("1,4", 5)]
-    public void ShouldReturnSum(string number, int expected)
+    public void ShouldReturnSum(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);
     }
     
@@ -42,18 +42,18 @@ public class StringCalcualtorTests
     [InlineData("1, 2\n 3", 6)]
     [InlineData("1,4", 5)]
     [InlineData("1\n2\n4", 7)]
-    public void ShouldReturnSumSplitByCommaAndNewLine(string number, int expected)
+    public void ShouldReturnSumSplitByCommaAndNewLine(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);
     }
     
     [Theory]
     [InlineData("1, 2, 4, 7, 8", 22)]
     [InlineData("1,19,50", 70)]
-    public void ShouldReturnSumUnknownAmountOfNumbers(string number, int expected)
+    public void ShouldReturnSumUnknownAmountOfNumbers(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);
     }
 
@@ -61,9 +61,9 @@ public class StringCalcualtorTests
     [InlineData("//;\n1;2",3)]
     [InlineData("//s\n4s6", 10)]
     [InlineData("//!\n1!5!8", 14)]
-    public void ShouldReturnSumDifferntDelimiters(string number, int expected)
+    public void ShouldReturnSumDifferntDelimiters(string numbers, int expected)
     {
-        var result = _stringCalculator.Add(number);
+        var result = _stringCalculator.Add(numbers);
         Assert.Equal(expected, result);   
     }
 
@@ -79,9 +79,9 @@ public class StringCalcualtorTests
     [Theory]
     [InlineData("1,4,-1")]
     [InlineData("-1, -3")]
-    public void ShouldThrowExpetionNegativeNumber(string number)
+    public void ShouldThrowExpetionNegativeNumber(string numbers)
     {
-        var exception = Assert.Throws<Exception>(() => _stringCalculator.Add(number));
+        var exception = Assert.Throws<Exception>(() => _stringCalculator.Add(numbers));
         
         Assert.Contains(($"negatives are not allowed!"), exception.Message);
     }
